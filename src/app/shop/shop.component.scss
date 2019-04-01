@@ -1,6 +1,8 @@
 .money-header {
   margin: 10px;
-  position: absolute;
+  position: sticky;
+  top: 0;
+  z-index: 15;
   &__icon {
     zoom: 1.5;
   }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoneyTransaction, PersistenceService } from '../service/persistence.service';
-import { FeatureAsset, LevelAsset } from '../service/game-loader.service';
-import { DESERT, MEADOW } from '../home/levels';
+import { FeatureAsset, FenceAsset, LevelAsset } from '../service/game-loader.service';
+import { LEVELS } from '../home/levels';
+import { FENCES } from '../home/fences';
 
 @Component({
     selector: 'shop',
@@ -10,15 +11,18 @@ import { DESERT, MEADOW } from '../home/levels';
 })
 export class ShopComponent implements OnInit {
 
+
     private money: Promise<number>;
 
     private lockedLevels: Array<LevelAsset>;
+
+    private lockedFences: Array<FenceAsset>;
 
     constructor( private persistenceService: PersistenceService ) { }
 
     ngOnInit() {
         this.money = this.persistenceService.loadMoney();
-        const dbLoadedLevels: Array<Promise<LevelAsset>> = [DESERT].map(e => {
+        const dbLoadedLevels: Array<Promise<LevelAsset>> = LEVELS.map(e => {
             return new Promise(resolve => {
                 this.persistenceService.testFeature(e.feature).then(isEnabled => {
                     resolve(Object.assign({}, e, { isEnabled }));
@@ -26,10 +30,17 @@ export class ShopComponent implements OnInit {
             });
         });
 
-        Promise.all(dbLoadedLevels).then(resolvedLevel => this.lockedLevels = [MEADOW]
-                .map(e => Object.assign({}, e, { isEnabled: true }))
-                .concat(resolvedLevel)
-        );
+        Promise.all(dbLoadedLevels).then(resolvedLevels => this.lockedLevels = resolvedLevels);
+
+        const dbLoadedFences: Array<Promise<LevelAsset>> = FENCES.map(e => {
+            console.log(e)
+            return new Promise(resolve => {
+                this.persistenceService.testFeature(e.feature).then(isEnabled => {
+                    resolve(Object.assign({}, e, { isEnabled }));
+                });
+            });
+        });
+        Promise.all(dbLoadedFences).then(resolvedFences => this.lockedFences = resolvedFences);
     }
 
     buyFeature( asset: FeatureAsset ) {
