@@ -1,5 +1,11 @@
-<img src="{{ path }}">
+<img *ngIf="!sprite" src="{{ path }}">
+<canvas #sprite *ngIf="!!sprite"></canvas>
+<div class="description__container">
+  <span class="description__container__label">{{ description }}</span>
+</div>
+
 <div class="price__container">
   <ion-icon class="price__container__icon" src="./assets/icon/coins.svg"></ion-icon>
   <span class="price__container__label">{{ price }}</span>
 </div>
+

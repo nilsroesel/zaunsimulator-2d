@@ -1,18 +1,63 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'shop-card',
   templateUrl: './shop-card.component.html',
   styleUrls: ['./shop-card.component.scss'],
 })
-export class ShopCardComponent {
+export class ShopCardComponent implements AfterViewInit {
 
-  @Input() path: string;
+    @Input() path: string;
 
-  @Input() price: number;
+    @Input() price: number;
+
+    @Input() description: string = '';
+
+    @Input() sprite: {
+        width: number;
+        height: number;
+        frames: number;
+        frame: number;
+        zoomFactor: number;
+    };
 
 
-  constructor() { }
+    @ViewChild('sprite') canvas: ElementRef;
+
+    private cx: CanvasRenderingContext2D;
+
+    constructor() { }
+
+    ngAfterViewInit() {
+        if (!!this.sprite) {
+            const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
+            this.cx = canvasEl.getContext('2d');
+
+            const cardImage = new Image();
+            cardImage.src = this.path;
+            cardImage.onload = () => {
+                const calculatedWidth = ( this.sprite.width / this.sprite.frames ) * ( this.sprite.zoomFactor || 1 );
+                const calculatedHeight = this.sprite.height * ( this.sprite.zoomFactor || 1 );
+                canvasEl.width = calculatedWidth;
+                canvasEl.height = calculatedHeight;
+
+                const spriteFrameStartX = ( this.sprite.width / this.sprite.frames ) * this.sprite.frame;
+                const spriteFrameStartY = 0;
+                const frameWidth = (this.sprite.width / this.sprite.frames);
+                const frameHeight = this.sprite.height;
+
+                this.cx.drawImage(cardImage,
+                    spriteFrameStartX,
+                    spriteFrameStartY,
+                    frameWidth,
+                    frameHeight,
+                    0,
+                    0,
+                    calculatedWidth,
+                    calculatedHeight);
+            };
+        }
+    }
 
 
 }
