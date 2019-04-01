@@ -23,7 +23,7 @@ export class SimulatorComponent implements OnInit, OnDestroy {
     counterLabel;
 
     sceneObjects;
-    scoreReporter = () => {};
+    scoreReporter;
 
     constructor( private gameLoaderService: GameLoaderService,
                  private scorer: Scorer,
@@ -53,7 +53,6 @@ export class SimulatorComponent implements OnInit, OnDestroy {
         this.scoreReporter = () => {
             const achievedPoints = this$.scorer.getScore();
             this$.persistenceService.transactMoney(Math.ceil(achievedPoints / 100));
-            return () => {};
         };
     }
 
@@ -149,7 +148,7 @@ export class SimulatorComponent implements OnInit, OnDestroy {
             this$.scorer.stop();
             this.fence.frame = 5;
             this.lostScreen.visible = true;
-            this.scoreReporter = this.scoreReporter();
+            this.scoreReporter = !!this.scoreReporter ? this.scoreReporter() : undefined;
         }
         const that = this;
         (this.sceneObjects || []).forEach(action => action.behaviour.update.call(that, action.createdValue));
