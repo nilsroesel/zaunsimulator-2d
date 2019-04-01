@@ -33,7 +33,6 @@ export class ShopComponent implements OnInit {
         Promise.all(dbLoadedLevels).then(resolvedLevels => this.lockedLevels = resolvedLevels);
 
         const dbLoadedFences: Array<Promise<LevelAsset>> = FENCES.map(e => {
-            console.log(e)
             return new Promise(resolve => {
                 this.persistenceService.testFeature(e.feature).then(isEnabled => {
                     resolve(Object.assign({}, e, { isEnabled }));
