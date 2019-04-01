@@ -22,7 +22,7 @@ export class PersistenceService {
     }
 
     testFeature( feature: Feature ): Promise<boolean> {
-        return !!feature ? new Promise<boolean>(resolve => resolve(true)) :
+        return !feature ? new Promise<boolean>(resolve => resolve(true)) :
             new Promise<boolean>(resolve => this.store.get(feature)
                 .then(dbFeature => resolve(!!dbFeature))
                 .catch(() => resolve(false)));
