@@ -13,6 +13,8 @@ export class ShopCardComponent implements AfterViewInit {
 
     @Input() description: string = '';
 
+    @Input() locked: boolean = true;
+
     @Input() sprite: {
         width: number;
         height: number;
@@ -82,9 +84,5 @@ export class ShopCardComponent implements AfterViewInit {
             }
         }
     }
-
-    private draw() {
-    }
-
 
 }
