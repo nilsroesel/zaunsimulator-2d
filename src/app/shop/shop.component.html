@@ -20,6 +20,7 @@
       <shop-card (click)="buyFeature(level)"
                  [path]="level.path"
                  [description]="level.name"
+                 [locked]="!level.isEnabled"
                  [price]="level.price || 0" [class.disabled]="!!level.isEnabled">
       </shop-card>
     </ion-slide>
@@ -33,6 +34,7 @@
                  [path]="fence.path"
                  [price]="fence.price || 0"
                  [description]="fence.name"
+                 [locked]="!fence.isEnabled"
                  [sprite]="{
                   width: 1200,
                   height: 100,
