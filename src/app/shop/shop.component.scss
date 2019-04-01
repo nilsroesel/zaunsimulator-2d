@@ -1,0 +1,23 @@
+.money-header {
+  margin: 10px;
+  position: absolute;
+  &__icon {
+    zoom: 1.5;
+  }
+  &__label {
+    font-size: 32px;
+    font-weight: bold;
+    margin-left: 8px;
+  }
+}
+
+.slider {
+  height: 275px;
+}
+
+.category-header {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px auto 0 auto;
+  text-align: center;
+}

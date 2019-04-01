@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Shop
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="money-header">
+    <ion-icon src="./assets/icon/coins.svg" slot="start" class="money-header__icon"></ion-icon>
+    <span class="money-header__label">{{ money | async }}</span>
+  </div>
+  <div class="category-header">Level</div>
+  <ion-slides class="slider" [options]="{ loop: true, pager: true }" [pager]="true">
+    <ion-slide *ngFor="let level of lockedLevels">
+      <shop-card (click)="buyFeature(level)"
+                 [path]="level.path"
+                 [price]="level.price || 0" [class.disabled]="!!level.isEnabled">
+      </shop-card>
+    </ion-slide>
+
+  </ion-slides>
+
+  <div class="category-header">Fences</div>
+  <ion-slides class="slider" [options]="{ loop: true, pager: true }" [pager]="true">
+    <ion-slide><div style="height: 80%; width: 60%; background: #0bb8cc"></div></ion-slide>
+    <ion-slide><div style="height: 80%; width: 60%; background: #d33939"></div></ion-slide>
+    <ion-slide><div style="height: 80%; width: 60%; background: #ba9d37"></div></ion-slide>
+    <ion-slide><div style="height: 80%; width: 60%; background: #7044ff"></div></ion-slide>
+    <ion-slide><div style="height: 80%; width: 60%; background: #ca3a11"></div></ion-slide>
+  </ion-slides>
+</ion-content>
