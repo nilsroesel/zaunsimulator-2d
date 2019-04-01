@@ -3,7 +3,7 @@ import { createFrameArray, LevelAsset } from '../../service/game-loader.service'
 export const MEADOW: LevelAsset = {
     path: 'assets/levels/level_1_bg.png',
     name: 'Meadow',
-    feature: null,
+    feature: undefined,
     behaviours: [{
         preload: function () {
             this.load.image('cloud1', '/assets/environment/cloud1.png');

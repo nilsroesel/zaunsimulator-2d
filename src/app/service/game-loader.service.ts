@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { MEADOW } from '../home/levels/';
 import { Feature } from './persistence.service';
+import { NORMAL_FENCE } from '../home/fences/normal.fence';
 
 @Injectable()
 export class GameLoaderService {
     private levelAsset: LevelAsset;
-    private fenceAsset: FenceAssets;
+    private fenceAsset: FenceAsset;
     private characterName: string;
 
     setLevelAsset( asset: LevelAsset ) {
         this.levelAsset = asset;
     }
 
-    setFenceAsset( asset: FenceAssets ) {
+    setFenceAsset( asset: FenceAsset ) {
         this.fenceAsset = asset;
     }
 
@@ -22,31 +23,20 @@ export class GameLoaderService {
 
     getLevelAsset(): LevelAsset { return this.levelAsset || MEADOW; }
 
-    getFenceAsset(): FenceAssets { return this.fenceAsset || FenceAssets.NORMAL_FENCE; }
+    getFenceAsset(): FenceAsset { return this.fenceAsset || NORMAL_FENCE; }
 
     getCharacterName(): string { return this.characterName; }
 
 }
 
-export class FenceAssets {
+export interface FenceAsset extends Asset, FeatureAsset {}
 
-    static readonly NORMAL_FENCE: FenceAssets = new FenceAssets('assets/fences/lattenzaun-sprite.png', 'Lattenzaun');
-    static readonly LASER_FENCE: FenceAssets = new FenceAssets('assets/fences/laserzaun-sprite.png', 'Laserzaun');
-    static readonly WIRE_MESH_FENCE: FenceAssets = new FenceAssets('assets/fences/maschendrahtzaun-sprite.png',
-        'Maschendrahtzaun');
-
-    constructor( path: string, name: string ) {
-        this.path = path;
-        this.name = name;
-    }
-
+export interface Asset {
     readonly path: string;
     readonly name: string;
 }
 
-export interface LevelAsset extends FeatureAsset{
-    readonly path: string;
-    readonly name: string;
+export interface LevelAsset extends Asset, FeatureAsset {
     readonly behaviours: Array<BehaviourObject>;
 }
 
