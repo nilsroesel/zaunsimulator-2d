@@ -1,6 +1,8 @@
 {
   "Fence.Laser": "Laser Hegn",
   "Fence.Mesh": "Kædelink Hegn",
+  "Fence.ModernBarbedWire": "Moderne Pigtråd Hegn",
+
   "Fence.Normal": "Hegn",
   "Level.Meadow": "Eng",
   "Level.Desert": "Vildmarken",
