@@ -1,5 +1,4 @@
-import { LevelAsset } from '../../service/game-loader.service';
-import { Feature } from '../../service/feature.service';
+import { Feature, LevelAsset } from '../../service';
 
 export const DESERT: LevelAsset = {
     path: 'assets/levels/level_2_bg.png',

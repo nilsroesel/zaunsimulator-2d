@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { PersistenceService } from './persistence.service';
 import { IonicStorageModule } from '@ionic/storage';
-import { GameLoaderService } from './game-loader.service';
-import { FeatureService } from './feature.service';
+import { FeatureService, GameLoaderService, PersistenceService } from './index';
 
 
 @NgModule({

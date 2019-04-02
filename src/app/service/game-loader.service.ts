@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MEADOW } from '../home/levels/';
 import { NORMAL_FENCE } from '../home/fences/normal.fence';
-import { Feature } from './feature.service';
+import { Feature } from './index';
 
 @Injectable()
 export class GameLoaderService {

@@ -1,4 +1,4 @@
-import { FenceAsset } from '../../service/game-loader.service';
+import { FenceAsset } from '../../service';
 
 export const NORMAL_FENCE: FenceAsset = {
     name: 'Lattenzaun',

@@ -53,7 +53,7 @@ export class FeatureService {
 
 }
 
-export enum Feature {
+export const enum Feature {
     LEVEL_DESERT = 'LEVEL_DESERT',
 
     FENCE_MESH_WIRE = 'FENCE_MESH_WIRE',

@@ -1,4 +1,4 @@
-import { createFrameArray, LevelAsset } from '../../service/game-loader.service';
+import { createFrameArray, LevelAsset } from '../../service';
 
 export const MEADOW: LevelAsset = {
     path: 'assets/levels/level_1_bg.png',
