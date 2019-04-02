@@ -26,7 +26,7 @@ export class FeatureService {
     }
 
     loadFences( callback?: (levels: Array<FenceAsset>) => void ): Promise<Array<FenceAsset>> {
-        const dbLoadedFences: Array<Promise<LevelAsset>> = FENCES.map(e => {
+        const dbLoadedFences: Array<Promise<FenceAsset>> = FENCES.map(e => {
             return new Promise(resolve => {
                 this.testFeature(e.feature).then(isEnabled => {
                     resolve(Object.assign({}, e, { isEnabled }));
