@@ -5,7 +5,8 @@
 </div>
 
 <div class="description__container">
-  <span class="description__container__label">{{ description }}</span>
+  <span *ngIf="!translate" class="description__container__label">{{ description }}</span>
+  <span *ngIf="translate" class="description__container__label">{{ description | translate }}</span>
 </div>
 
 

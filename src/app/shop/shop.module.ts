@@ -5,10 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { ShopComponent } from './shop.component';
 import { ShopCardComponent } from './shop-card/shop-card.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
     imports: [
+        TranslateModule,
         CommonModule,
         FormsModule,
         IonicModule,

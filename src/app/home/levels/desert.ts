@@ -3,7 +3,7 @@ import { Feature } from '../../model/feature';
 
 export const DESERT: LevelAsset = {
     path: 'assets/levels/level_2_bg.png',
-    name: 'Desert',
+    name: 'Level.Desert',
     feature: Feature.LEVEL_DESERT,
     price: 100,
     behaviours: [

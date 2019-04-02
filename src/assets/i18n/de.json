@@ -1,0 +1,18 @@
+{
+  "Fence.Laser": "Laserzaun",
+  "Fence.Mesh": "Maschendrahtzaun",
+  "Fence.Normal": "Lattenzaun",
+  "Level.Meadow": "Wiese",
+  "Level.Desert": "Wüste",
+
+  "Label.Menu": "Menü",
+  "Label.SelectLevel": "Level auswählen",
+  "Label.Shop": "Baumarkt",
+  "Label.Levels": "Level",
+  "Label.Fences": "Zäune",
+  "Label.Settings": "Einstellungen",
+  "Label.Language": "Sprache",
+  "Label.Language.German": "Deutsch",
+  "Label.Language.English": "Englisch",
+  "Label.Language.Danish": "Dänisch"
+}

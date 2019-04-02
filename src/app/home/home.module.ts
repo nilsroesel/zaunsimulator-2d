@@ -5,18 +5,20 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { SimulatorComponent } from './simulator.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
-      CommonModule,
-      FormsModule,
-      IonicModule,
-      RouterModule.forChild([
-        {
-          path: '',
-          component: SimulatorComponent
-        }
-      ])
+        TranslateModule,
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: SimulatorComponent
+            }
+        ])
     ],
     declarations: [SimulatorComponent]
 })

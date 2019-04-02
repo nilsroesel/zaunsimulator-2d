@@ -5,19 +5,21 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { ListPage } from './list.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ListPage
-      }
-    ])
-  ],
-  declarations: [ListPage]
+      TranslateModule,
+      CommonModule,
+      FormsModule,
+      IonicModule,
+      RouterModule.forChild([
+        {
+          path: '',
+          component: ListPage
+        }
+      ])
+    ],
+    declarations: [ListPage]
 })
 export class ListPageModule {}

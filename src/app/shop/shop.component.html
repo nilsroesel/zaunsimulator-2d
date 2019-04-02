@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Shop
+      {{ 'Label.Shop' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,7 @@
     <ion-icon src="./assets/icon/coins.svg" slot="start" class="money-header__icon"></ion-icon>
     <span class="money-header__label">{{ money | async }}</span>
   </div>
-  <div class="category-header">Level</div>
+  <div class="category-header">{{ 'Label.Levels' | translate }}</div>
   <ion-slides class="slider" [options]="{ loop: true, pager: true }" [pager]="true">
     <ion-slide *ngFor="let level of lockedLevels">
       <shop-card (click)="buyFeature(level)"
@@ -27,7 +27,7 @@
 
   </ion-slides>
 
-  <div class="category-header">Fences</div>
+  <div class="category-header">{{ 'Label.Fences' | translate }}</div>
   <ion-slides class="slider" [options]="{ loop: true, pager: true }" [pager]="true">
     <ion-slide *ngFor="let fence of lockedFences">
       <shop-card (click)="buyFeature(fence)"

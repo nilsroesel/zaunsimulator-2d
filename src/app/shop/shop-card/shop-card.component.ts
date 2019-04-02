@@ -15,6 +15,8 @@ export class ShopCardComponent implements AfterViewInit {
 
     @Input() locked: boolean = true;
 
+    @Input() translate: boolean = true;
+
     @Input() sprite: {
         width: number;
         height: number;

@@ -3,7 +3,7 @@ import { LevelAsset } from '../../model/level-asset';
 
 export const MEADOW: LevelAsset = {
     path: 'assets/levels/level_1_bg.png',
-    name: 'Meadow',
+    name: 'Level.Meadow',
     feature: undefined,
     behaviours: [{
         preload: function () {

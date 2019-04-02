@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Select Level
+      {{ 'Label.SelectLevel' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +12,7 @@
 <ion-content>
     <ion-list>
         <ion-item *ngFor="let level of levels" (click)="selectLevel(level)" [class.disabled]="!level.isEnabled">
-            {{level.name}}
+            {{ level.name | translate }}
             <ion-icon (click)="jumpOffToShop(level.feature)" slot="end" *ngIf="!level.isEnabled"
                       src="./assets/icon/locked.svg" ></ion-icon>
             <ion-icon src="./assets/icon/unlocked.svg" slot="end" *ngIf="level.isEnabled"></ion-icon>

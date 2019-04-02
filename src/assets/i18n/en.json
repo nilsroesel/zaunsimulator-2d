@@ -1,0 +1,18 @@
+{
+  "Fence.Laser": "Laser fence",
+  "Fence.Mesh": "Mesh wire fence",
+  "Fence.Normal": "Normal fence",
+  "Level.Meadow": "Meadow",
+  "Level.Desert": "Desert",
+
+  "Label.Menu": "Menu",
+  "Label.SelectLevel": "Select Level",
+  "Label.Shop": "Shop",
+  "Label.Levels": "Levels",
+  "Label.Fences": "Fences",
+  "Label.Settings": "Settings",
+  "Label.Language": "Language",
+  "Label.Language.German": "German",
+  "Label.Language.English": "English",
+  "Label.Language.Danish": "Danish"
+}
