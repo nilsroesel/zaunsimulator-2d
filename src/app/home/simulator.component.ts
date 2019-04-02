@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { GameLoaderService, JukeBox, PersistenceService } from '../service';
+import { GameLoaderService, PersistenceService } from '../service';
 import { Scorer } from './scorer.service';
+import { Jukebox } from '../model/jukebox';
 declare var Phaser;
 
 let this$;
@@ -45,7 +46,7 @@ export class SimulatorComponent implements OnInit, OnDestroy {
         this.game.load.image('lost', '/assets/lost.png');
         this.game.load.image('bg_level', this$.gameLoaderService.getLevelAsset().path);
         this.game.load.spritesheet('fence', this$.gameLoaderService.getFenceAsset().path, 200, 100, 6);
-        this.game.load.audio('bg_music', [JukeBox.MASCHENDRAHT_ZAUN.path]);
+        this.game.load.audio('bg_music', [Jukebox.randomSong().path]);
 
         const that = this;
         this$.gameLoaderService.getLevelAsset().behaviours.forEach(behaviour => behaviour.preload.apply(that));

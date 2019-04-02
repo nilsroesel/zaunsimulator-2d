@@ -30,22 +30,6 @@ export class GameLoaderService {
 
 }
 
-export class JukeBox {
-
-    static readonly MASCHENDRAHT_ZAUN = new JukeBox('/assets/music/maschendrahtzaun.mp3', 'Maschendrahtzaun');
-
-    constructor( path: string, name: string ) {
-        this.path = path;
-        this.name = name;
-    }
-
-    readonly path: string;
-    readonly name: string;
-}
-
-
-
-
 export function createFrameArray(beginning: number, ending: number): Array<number> {
     const ret: Array<number> = [];
     for (let i = beginning; i <= ending; i++) ret.push(i);
