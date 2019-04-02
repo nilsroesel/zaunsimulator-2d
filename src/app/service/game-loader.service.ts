@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MEADOW } from '../home/levels/';
 import { NORMAL_FENCE } from '../home/fences/normal.fence';
-import { Feature } from './index';
+import { FenceAsset } from '../model/fence-asset';
+import { LevelAsset } from '../model/level-asset';
 
 @Injectable()
 export class GameLoaderService {
@@ -29,23 +30,6 @@ export class GameLoaderService {
 
 }
 
-export interface FenceAsset extends Asset, FeatureAsset {}
-
-export interface Asset {
-    readonly path: string;
-    readonly name: string;
-}
-
-export interface LevelAsset extends Asset, FeatureAsset {
-    readonly behaviours: Array<BehaviourObject>;
-}
-
-export interface FeatureAsset {
-    readonly isEnabled?: boolean;
-    readonly price?: number;
-    readonly feature: Feature;
-}
-
 export class JukeBox {
 
     static readonly MASCHENDRAHT_ZAUN = new JukeBox('/assets/music/maschendrahtzaun.mp3', 'Maschendrahtzaun');
@@ -60,13 +44,7 @@ export class JukeBox {
 }
 
 
-export interface BehaviourObject {
-    /* 1 directly before background <--- Layer 3 Fence --> 5 nearest foreground */
-    layer?: 1 | 2 | 3 | 4 | 5;
-    preload: () => any;
-    create: () => any;
-    update: (obj) => any;
-}
+
 
 export function createFrameArray(beginning: number, ending: number): Array<number> {
     const ret: Array<number> = [];

@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { GameLoaderService, JukeBox } from '../service/game-loader.service';
+import { GameLoaderService, JukeBox, PersistenceService } from '../service';
 import { Scorer } from './scorer.service';
-import { PersistenceService } from '../service/persistence.service';
 declare var Phaser;
 
 let this$;
@@ -143,8 +142,7 @@ export class SimulatorComponent implements OnInit, OnDestroy {
     update() {
         if (!this$.scorer.hasLost()) {
             this.counterLabel.text = this$.scorer.getScoreAsString();
-        }
-        else {
+        } else {
             this$.scorer.stop();
             this.fence.frame = 5;
             this.lostScreen.visible = true;
@@ -155,9 +153,3 @@ export class SimulatorComponent implements OnInit, OnDestroy {
     }
 
 }
-
-
-
-
-
-

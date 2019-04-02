@@ -1,4 +1,5 @@
-import { Feature, LevelAsset } from '../../service';
+import { LevelAsset } from '../../model/level-asset';
+import { Feature } from '../../model/feature';
 
 export const DESERT: LevelAsset = {
     path: 'assets/levels/level_2_bg.png',

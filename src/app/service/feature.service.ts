@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { PersistenceService } from './persistence.service';
-import { FenceAsset, LevelAsset } from './game-loader.service';
 import { LEVELS } from '../home/levels';
 import { FENCES } from '../home/fences';
+import { LevelAsset } from '../model/level-asset';
+import { FenceAsset } from '../model/fence-asset';
+import { Feature } from '../model/feature';
 
 
 @Injectable()
@@ -51,12 +53,4 @@ export class FeatureService {
         return creationPromise;
     }
 
-}
-
-export const enum Feature {
-    LEVEL_DESERT = 'LEVEL_DESERT',
-
-    FENCE_MESH_WIRE = 'FENCE_MESH_WIRE',
-
-    FENCE_LASER = 'FENCE_LASER'
 }

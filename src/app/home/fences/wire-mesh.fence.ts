@@ -1,4 +1,5 @@
-import { Feature, FenceAsset } from '../../service/';
+import { FenceAsset } from '../../model/fence-asset';
+import { Feature } from '../../model/feature';
 
 export const WIRE_MESH_FENCE: FenceAsset = {
     name: 'Maschendrahtzaun',

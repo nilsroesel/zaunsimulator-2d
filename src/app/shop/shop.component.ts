@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MoneyTransaction, PersistenceService } from '../service/persistence.service';
-import { FeatureAsset, FenceAsset, LevelAsset } from '../service/game-loader.service';
-import { FeatureService } from '../service/feature.service';
+import { FeatureService, MoneyTransaction, PersistenceService } from '../service';
+import { LevelAsset } from '../model/level-asset';
+import { FenceAsset } from '../model/fence-asset';
+import { FeatureAsset } from '../model/feature-asset';
 
 @Component({
     selector: 'shop',

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { GameLoaderService, LevelAsset } from '../service/game-loader.service';
+import { FeatureService, GameLoaderService } from '../service';
 import { Router } from '@angular/router';
 import { LEVELS } from '../home/levels';
-import { FeatureService, Feature } from '../service/feature.service';
+import { LevelAsset } from '../model/level-asset';
+import { Feature } from '../model/feature';
 
 @Component({
   selector: 'app-list',

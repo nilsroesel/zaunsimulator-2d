@@ -1,4 +1,4 @@
-import { FenceAsset } from '../../service';
+import { FenceAsset } from '../../model/fence-asset';
 
 export const NORMAL_FENCE: FenceAsset = {
     name: 'Lattenzaun',
