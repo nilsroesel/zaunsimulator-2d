@@ -21,23 +21,9 @@ export class PersistenceService {
         );
     }
 
-    testFeature( feature: Feature ): Promise<boolean> {
-        return !feature ? new Promise<boolean>(resolve => resolve(true)) :
-            new Promise<boolean>(resolve => this.store.get(feature)
-                .then(dbFeature => resolve(!!dbFeature))
-                .catch(() => resolve(false)));
-    }
+    getProperty( property: string ) { return this.store.get(property); }
 
-    unlockFeature( feature: Feature ) { return this.store.set(feature, true); }
+    setProperty( property: string, value: any ) { return this.store.set(property, value); }
 }
 
 export enum MoneyTransaction { ADD = 1, SUBTRACT = -1 }
-
-export enum Feature {
-    LEVEL_DESERT = 'LEVEL_DESERT',
-
-    FENCE_MESH_WIRE = 'FENCE_MESH_WIRE',
-
-    FENCE_LASER = 'FENCE_LASER'
-}
-

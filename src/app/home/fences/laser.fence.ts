@@ -1,5 +1,5 @@
 import { FenceAsset } from '../../service/game-loader.service';
-import { Feature } from '../../service/persistence.service';
+import { Feature } from '../../service/feature.service';
 
 export const LASER_FENCE: FenceAsset = {
     name: 'Laserzaun',

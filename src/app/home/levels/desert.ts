@@ -1,5 +1,5 @@
-import { Feature } from '../../service/persistence.service';
 import { LevelAsset } from '../../service/game-loader.service';
+import { Feature } from '../../service/feature.service';
 
 export const DESERT: LevelAsset = {
     path: 'assets/levels/level_2_bg.png',

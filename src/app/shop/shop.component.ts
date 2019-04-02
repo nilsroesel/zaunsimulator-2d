@@ -25,14 +25,14 @@ export class ShopComponent implements OnInit {
     }
 
     buyFeature( asset: FeatureAsset ) {
-        Promise.all([this.persistenceService.testFeature(asset.feature), this.money] as Array<any>)
+        Promise.all([this.featureService.testFeature(asset.feature), this.money] as Array<any>)
             .then((args: [boolean, number]) => {
                 const disabled = args[0];
                 const money = args[1];
                 if ( money >= asset.price && !disabled) {
                     this.persistenceService.transactMoney(asset.price, MoneyTransaction.SUBTRACT).then(() =>
                         this.money = this.persistenceService.loadMoney());
-                    this.persistenceService.unlockFeature(asset.feature).then(() => this.loadFeatures());
+                    this.featureService.unlockFeature(asset.feature, () => this.loadFeatures());
                 }
             });
     }
