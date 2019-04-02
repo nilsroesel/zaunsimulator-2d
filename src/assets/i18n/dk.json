@@ -1,0 +1,18 @@
+{
+  "Fence.Laser": "Laser Hegn",
+  "Fence.Mesh": "Kædelink Hegn",
+  "Fence.Normal": "Hegn",
+  "Level.Meadow": "Enn",
+  "Level.Desert": "Vildmarken",
+
+  "Label.Menu": "Menu",
+  "Label.SelectLevel": "Vælg et Scenario",
+  "Label.Shop": "Markedsplads",
+  "Label.Levels": "Scenarier",
+  "Label.Fences": "Hegn",
+  "Label.Settings": "Indstillinger",
+  "Label.Language": "Sprog",
+  "Label.Language.German": "Tysk",
+  "Label.Language.English": "Engelsk",
+  "Label.Language.Danish": "Dansk"
+}
