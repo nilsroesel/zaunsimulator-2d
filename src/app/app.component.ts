@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SettingsService } from './service';
 
 @Component({
     selector: 'app-root',
@@ -23,13 +24,14 @@ export class AppComponent {
         },
         {
             title: 'Label.Settings',
-            url: '/shop',
+            url: '/settings',
             icon: 'assets/icon/settings.svg'
         }
     ];
 
     constructor(
         private platform: Platform,
+        private settingsService: SettingsService,
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
         private translate: TranslateService
@@ -47,10 +49,7 @@ export class AppComponent {
 
     initializeTranslations() {
         this.translate.setDefaultLang('en');
-        if (this.translate.getBrowserLang() !== undefined) {
-            this.translate.use(this.translate.getBrowserLang());
-        } else {
-            this.translate.use('en');
-        }
+        this.translate.addLangs(['de', 'dk']);
+        this.settingsService.loadLanguageSettings();
     }
 }

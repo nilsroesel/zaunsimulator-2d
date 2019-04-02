@@ -11,7 +11,7 @@
 
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let level of levels" (click)="selectLevel(level)" [class.disabled]="!level.isEnabled">
+        <ion-item *ngFor="let level of levels" (click)="selectLevel(level)" [class.disabled]="!level.isEnabled" detail>
             {{ level.name | translate }}
             <ion-icon (click)="jumpOffToShop(level.feature)" slot="end" *ngIf="!level.isEnabled"
                       src="./assets/icon/locked.svg" ></ion-icon>
