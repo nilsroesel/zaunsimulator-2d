@@ -1,0 +1,24 @@
+.setting-center {
+  display: table;
+  margin: 0 auto 0 auto;
+}
+
+.setting-language {
+  margin: 5px auto 5px auto;
+  display: flex;
+
+  &__icon {
+    zoom: 3;
+    margin-right: 5px;
+  }
+
+  &__label {
+    font-size: 32px;
+    line-height: 1.5;
+    float: right;
+    &--active {
+      color: #3d71c6;
+      font-weight: bold;
+    }
+  }
+}

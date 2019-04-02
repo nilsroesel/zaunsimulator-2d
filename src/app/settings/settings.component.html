@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ 'Label.Settings' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>{{ 'Label.Language' | translate }}
+    <ion-icon slot="end" src="./assets/icon/language.svg"></ion-icon>
+  </ion-item>
+  <div class="setting-center">
+    <ng-container *ngFor="let l of languages">
+      <div class="setting-language">
+        <ion-icon (click)="switchLanguage(l.key)" class="setting-language__icon" src="{{ l.icon }}"></ion-icon>
+        <div (click)="switchLanguage(l.key)"
+             class="setting-language__label"
+             [class.setting-language__label--active]="l.active">
+          {{ l.name | translate }}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+
+</ion-content>
+
+

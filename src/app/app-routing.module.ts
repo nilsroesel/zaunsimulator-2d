@@ -18,6 +18,10 @@ const routes: Routes = [
     {
       path: 'shop',
         loadChildren: './shop/shop.module#ShopModule'
+    },
+    {
+        path: 'settings',
+        loadChildren: './settings/settings.module#SettingsModule'
     }
 ];
 

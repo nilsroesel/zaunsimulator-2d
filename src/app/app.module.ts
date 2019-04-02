@@ -15,25 +15,24 @@ import { ServiceModule } from './service';
 import { ShopModule } from './shop/shop.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
-
+import { SettingsModule } from './settings/settings.module';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
     imports: [
-        ServiceModule,
-        BrowserModule,
-        ShopModule,
-        IonicModule.forRoot(),
         AppRoutingModule,
+        BrowserModule,
         HttpClientModule,
+        IonicModule.forRoot(),
+        ShopModule,
+        ServiceModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+        SettingsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
