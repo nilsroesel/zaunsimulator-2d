@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameLoaderService, LevelAsset } from '../service/game-loader.service';
 import { Router } from '@angular/router';
-import { DESERT, MEADOW } from '../home/levels';
+import { LEVELS } from '../home/levels';
 import { Feature, PersistenceService } from '../service/persistence.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ListPage implements OnInit {
   constructor( private gameLoaderService: GameLoaderService, private router: Router, private persistenceService: PersistenceService ) {}
 
   ngOnInit() {
-      const dbLoadedLevels: Array<Promise<LevelAsset>> = [DESERT].map(e => {
+      const dbLoadedLevels: Array<Promise<LevelAsset>> = LEVELS.map(e => {
           return new Promise(resolve => {
               this.persistenceService.testFeature(e.feature).then(isEnabled => {
                   resolve(Object.assign({}, e, { isEnabled }));
@@ -24,11 +24,7 @@ export class ListPage implements OnInit {
           });
       });
 
-      Promise.all(dbLoadedLevels).then(resolvedLevel => {
-          this.levels = [MEADOW]
-              .map(e => Object.assign({}, e, { isEnabled: true }))
-              .concat(resolvedLevel);
-      });
+      Promise.all(dbLoadedLevels).then(resolvedLevels => this.levels = resolvedLevels);
   }
 
   selectLevel( asset: LevelAsset ) {

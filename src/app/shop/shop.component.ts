@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoneyTransaction, PersistenceService } from '../service/persistence.service';
 import { FeatureAsset, FenceAsset, LevelAsset } from '../service/game-loader.service';
-import { LEVELS } from '../home/levels';
-import { FENCES } from '../home/fences';
+import { FeatureService } from '../service/feature.service';
 
 @Component({
     selector: 'shop',
@@ -18,7 +17,7 @@ export class ShopComponent implements OnInit {
 
     private lockedFences: Array<FenceAsset>;
 
-    constructor( private persistenceService: PersistenceService ) { }
+    constructor( private persistenceService: PersistenceService, private featureService: FeatureService ) { }
 
     ngOnInit() {
         this.money = this.persistenceService.loadMoney();
@@ -39,23 +38,7 @@ export class ShopComponent implements OnInit {
     }
 
     loadFeatures() {
-        const dbLoadedLevels: Array<Promise<LevelAsset>> = LEVELS.map(e => {
-            return new Promise(resolve => {
-                this.persistenceService.testFeature(e.feature).then(isEnabled => {
-                    resolve(Object.assign({}, e, { isEnabled }));
-                });
-            });
-        });
-
-        Promise.all(dbLoadedLevels).then(resolvedLevels => this.lockedLevels = resolvedLevels);
-
-        const dbLoadedFences: Array<Promise<LevelAsset>> = FENCES.map(e => {
-            return new Promise(resolve => {
-                this.persistenceService.testFeature(e.feature).then(isEnabled => {
-                    resolve(Object.assign({}, e, { isEnabled }));
-                });
-            });
-        });
-        Promise.all(dbLoadedFences).then(resolvedFences => this.lockedFences = resolvedFences);
+        this.featureService.loadLevels(resolvedLevels => this.lockedLevels = resolvedLevels);
+        this.featureService.loadFences(resolvedFences => this.lockedFences = resolvedFences);
     }
 }
