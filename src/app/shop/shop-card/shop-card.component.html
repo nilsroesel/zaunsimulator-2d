@@ -1,6 +1,6 @@
 <div>
   <img *ngIf="!sprite" src="{{ path }}">
-  <canvas #sprite *ngIf="!!sprite"></canvas>
+  <animated-canvas [sprite]="createSpriteSettings()"  #sprite *ngIf="!!sprite"></animated-canvas>
   <ion-icon class="card--locked" *ngIf="locked" src="./assets/icon/locked.svg"></ion-icon>
 </div>
 

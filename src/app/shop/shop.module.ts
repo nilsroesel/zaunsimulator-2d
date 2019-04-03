@@ -6,11 +6,12 @@ import { RouterModule } from '@angular/router';
 import { ShopComponent } from './shop.component';
 import { ShopCardComponent } from './shop-card/shop-card.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { UtilModule } from '../util/util.module';
 
 
 @NgModule({
     imports: [
-        TranslateModule,
+        UtilModule,
         CommonModule,
         FormsModule,
         IonicModule,
@@ -19,7 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
                 path: '',
                 component: ShopComponent
             }
-        ])
+        ]),
+        TranslateModule
     ],
     declarations: [ShopComponent, ShopCardComponent]
 })

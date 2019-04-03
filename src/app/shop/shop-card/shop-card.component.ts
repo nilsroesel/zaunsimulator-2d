@@ -1,11 +1,11 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'shop-card',
   templateUrl: './shop-card.component.html',
   styleUrls: ['./shop-card.component.scss'],
 })
-export class ShopCardComponent implements AfterViewInit {
+export class ShopCardComponent {
 
     @Input() path: string;
 
@@ -28,63 +28,8 @@ export class ShopCardComponent implements AfterViewInit {
         frameRate: number; // Default 12 fps
     };
 
-
-    @ViewChild('sprite') canvas: ElementRef;
-
-    private cx: CanvasRenderingContext2D;
-
     constructor() { }
 
-    ngAfterViewInit() {
-        if (!!this.sprite) {
-            const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
-            this.cx = canvasEl.getContext('2d');
-
-            const calculatedWidth = ( this.sprite.width / this.sprite.frames ) * ( this.sprite.zoomFactor || 1 );
-            const calculatedHeight = this.sprite.height * ( this.sprite.zoomFactor || 1 );
-            canvasEl.width = calculatedWidth;
-            canvasEl.height = calculatedHeight;
-
-            const spriteFrameStartX = ( this.sprite.width / this.sprite.frames ) * this.sprite.frame;
-            const spriteFrameStartY = 0;
-            const frameWidth = (this.sprite.width / this.sprite.frames);
-            const frameHeight = this.sprite.height;
-
-            const cardImage = new Image();
-            cardImage.src = this.path;
-            cardImage.onload = () => {
-                this.cx.drawImage(cardImage,
-                    spriteFrameStartX,
-                    spriteFrameStartY,
-                    frameWidth,
-                    frameHeight,
-                    0,
-                    0,
-                    calculatedWidth,
-                    calculatedHeight);
-            };
-
-            if ( this.sprite.animationStartFrame >= 0 ) {
-                const startFrameX = (this.sprite.animationStartFrame || 0) * frameWidth;
-                const endFrameX = (this.sprite.animationEndFrame || this.sprite.frames) * frameWidth;
-                let newSpriteFrameX = startFrameX;
-                setInterval(() => {
-                    this.cx.clearRect(0, 0, calculatedWidth, calculatedHeight);
-                    newSpriteFrameX = (newSpriteFrameX + calculatedWidth) <= endFrameX ?
-                        (newSpriteFrameX + frameWidth) : startFrameX;
-
-                    this.cx.drawImage(cardImage,
-                        newSpriteFrameX,
-                        spriteFrameStartY,
-                        frameWidth,
-                        frameHeight,
-                        0,
-                        0,
-                        calculatedWidth,
-                        calculatedHeight);
-                }, 1000 / (this.sprite.frameRate || 12 ));
-            }
-        }
-    }
+    createSpriteSettings() { return Object.assign({}, this.sprite, { path: this.path }); }
 
 }
