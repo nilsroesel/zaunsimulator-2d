@@ -5,6 +5,7 @@ import { MODERN_BARBED_WIRE as modernBarbedWire } from './modern-barbed-wire.fen
 import { RUSTY_BARBED_WIRE as rustyBarbedWire } from './rusty-barbed-wire.fence';
 import { BERLIN_WALL as berlinWall } from './berlin-wall.fence';
 import { HOARDING as hoardingFence } from './hoarding.fence';
+import { MYSTEROIOUS as mysteriousFence } from './mysteroius.fence';
 
 export const NORMAL_FENCE = normal;
 export const WIRE_MESH_FENCE = wireMesh;
@@ -13,5 +14,12 @@ export const MODERN_BARBED_WIRE = modernBarbedWire;
 export const RUSTY_BARBED_WIRE = rustyBarbedWire;
 export const BERLIN_WALL = berlinWall;
 export const HOARDING_FENCE = hoardingFence;
+export const MYSTERIOUS_FENCE = mysteriousFence;
 
-export const FENCES = [NORMAL_FENCE, RUSTY_BARBED_WIRE, WIRE_MESH_FENCE, HOARDING_FENCE, MODERN_BARBED_WIRE, LASER_FENCE, BERLIN_WALL];
+export const FENCES = [NORMAL_FENCE,
+    RUSTY_BARBED_WIRE,
+    WIRE_MESH_FENCE,
+    HOARDING_FENCE,
+    MODERN_BARBED_WIRE, LASER_FENCE,
+    MYSTERIOUS_FENCE,
+    BERLIN_WALL];
