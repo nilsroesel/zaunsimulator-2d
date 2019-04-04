@@ -14,12 +14,12 @@ export class Jukebox {
     static readonly FARMVILLE = new Song('/assets/music/farmville.mp3', 'Farmville');
 
     static getSongs(): Array<Song> {
-        return [Jukebox.MASCHENDRAHT_ZAUN, Jukebox.LEISURE_SUITE_LARRY, Jukebox.FARMVILLE, Jukebox.FARMVILLE];
+        return [Jukebox.MASCHENDRAHT_ZAUN, Jukebox.LEISURE_SUITE_LARRY, Jukebox.FARMVILLE];
     }
 
     static randomSong(): Song {
         const songs: Array<Song> = [null].concat(Jukebox.getSongs());
-        const randomSongIndex = Math.floor(Math.random() * songs.length) + 1;
+        const randomSongIndex = Math.floor(Math.random() * (songs.length - 1)) + 1;
         return songs[randomSongIndex];
     }
 }
