@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 
 import { ListPage } from './list.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { UtilModule } from '../util/util.module';
 
 @NgModule({
   imports: [
-      TranslateModule,
+      UtilModule,
       CommonModule,
       FormsModule,
       IonicModule,
@@ -18,8 +19,9 @@ import { TranslateModule } from '@ngx-translate/core';
           path: '',
           component: ListPage
         }
-      ])
-    ],
+      ]),
+      TranslateModule
+  ],
     declarations: [ListPage]
 })
 export class ListPageModule {}

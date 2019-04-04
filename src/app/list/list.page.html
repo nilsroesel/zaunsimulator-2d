@@ -1,15 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      {{ 'Label.SelectLevel' | translate }}
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            {{ 'Label.SelectLevel' | translate }}
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
     <ion-list>
         <ion-item *ngFor="let level of levels" (click)="selectLevel(level)" [class.disabled]="!level.isEnabled" detail>
             {{ level.name | translate }}
@@ -17,5 +18,13 @@
                       src="./assets/icon/locked.svg" ></ion-icon>
             <ion-icon src="./assets/icon/unlocked.svg" slot="end" *ngIf="level.isEnabled"></ion-icon>
         </ion-item>
-  </ion-list>
+    </ion-list>
+
+    <div class="fence-selection"> <!--  spaceBetween: -100,  loopedSlides: 4 ,loopAdditionalSlides: 5  -->
+        <ion-slides [options]="{ slidesPerView: 3,  spaceBetween: -100, loop: true, centeredSlides: true, loopedSlides: 'auto' }">
+            <ion-slide [onClassChange]="classChangeFactory(fence)" *ngFor="let fence of fences">
+                <animated-canvas [sprite]="createSpriteSettings(fence.path)"></animated-canvas>
+            </ion-slide>
+        </ion-slides>
+    </div>
 </ion-content>

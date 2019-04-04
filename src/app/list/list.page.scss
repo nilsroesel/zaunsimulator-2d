@@ -1,1 +1,11 @@
+.fence-selection {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+}
 
+.swiper-slide-active > animated-canvas {
+  box-shadow: 0 0 25px #94bcfc;
+  zoom: 1.1;
+}
